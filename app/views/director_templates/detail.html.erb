@@ -48,8 +48,25 @@ Go <a href = "/directors">back</a>
   </dd>
 </dl>
 
+<hr>
 
+<h2>Filmography</h2>
 
 <table border='1'>
+
+  <% @filmography.each do |movie| %>
+    <tr>
+      <td><%= movie.id %></td>
+      <td><img src='http://robohash.org/<%= movie.image %>?set=set5'></td>
+      <td><%= movie.title %></td>
+      <td><%= movie.year %></td>
+      <td><%= @director.name %></td>
+      <td>
+        <a href = "/movies/<%= movie.id %>">
+        Show details
+        </a>
+      </td>
+    </tr>
+  <% end %>
 
 </table>
