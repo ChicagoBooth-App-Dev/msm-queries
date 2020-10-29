@@ -6,7 +6,14 @@ class DirectorsController < ApplicationController
   end
 
   def eldest
+    @type = "Eldest"
     @eldest =  Director.all.where.not({ :dob => nil}).order({:dob => :asc}).at(0)
+    render({ :template => 'director_templates/eldest.html.erb'})
+  end
+
+  def youngest
+    @type = "Youngest"
+    @eldest =  Director.all.where.not({ :dob => nil}).order({:dob => :asc}).at(-1)
     render({ :template => 'director_templates/eldest.html.erb'})
   end
 
