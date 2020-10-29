@@ -6,6 +6,9 @@ class ActorsController < ApplicationController
   end
 
   def detail
+    @id = params.fetch('id')
+    @actor = Actor.where({ :id => @id}).first
+    @appearances = Character.where({ :actor_id => @id})
     render({ :template => 'actors_templates/detail.html.erb'})
   end
 
