@@ -18,6 +18,8 @@ class DirectorsController < ApplicationController
   end
 
   def detail
+    id = params.fetch('id')
+    @director = Director.all.where({ :id => id}).first
     render({ :template => 'director_templates/detail.html.erb'})
   end
 end
