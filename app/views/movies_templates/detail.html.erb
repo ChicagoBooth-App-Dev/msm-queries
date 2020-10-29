@@ -1,0 +1,66 @@
+<h1>Movie #<%= @id %> details</h1>
+
+Go <a href = "/movies">back</a>
+
+<hr>
+
+<dl>
+  <dt>
+    Title
+  </dt>
+  <dd>
+    <%= @movie_object.title %>
+  </dd>
+
+  <dt>
+    Year
+  </dt>
+  <dd>
+    <%= @movie_object.year %>
+  </dd>
+
+  <dt>
+    Duration
+  </dt>
+  <dd>
+    <%= @movie_object.duration %>
+  </dd>
+
+  <dt>
+    Description
+  </dt>
+  <dd>
+    <%= @movie_object.description %>
+  </dd>
+
+  <dt>
+    Image
+  </dt>
+  <dd>
+    <img src='http://robohash.org/<%= @movie_object.image %>' style="width:250px;">
+  </dd>
+
+  <dt>
+    Director
+  </dt>
+  <dd>
+    <% x = @movie_object.director_id %>
+    <%= Director.where({:id => x}).first.name %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@movie_object.created_at) %> ago
+  </dd>
+ 
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@movie_object.updated_at) %> ago
+  </dd>
+</dl>
+
+<hr>
