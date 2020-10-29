@@ -37,14 +37,14 @@ Go <a href = "/directors">back</a>
     Created at
   </dt>
   <dd>
-    about 5 years ago
+    about <%= Date.today.year - @director.created_at.year %> years ago
   </dd>
-
+ 
   <dt>
     Updated at
   </dt>
   <dd>
-    about 5 years ago
+    about <%= Date.today.year - @director.updated_at.year %> years ago
   </dd>
 </dl>
 
