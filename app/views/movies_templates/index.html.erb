@@ -1,0 +1,36 @@
+<h1>List of all movies</h1>
+
+<hr>
+
+<table border = '1'>
+  <tr>
+    <th>ID</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th>Year</th>
+    <th>Director</th>
+    <th>Details</th>
+  </tr>
+
+
+  <% @list_movies.each do |a_film| %>
+    <tr>
+      <td><%= a_film.id %></td>
+      
+      <td><img src='http://robohash.org/<%= a_film.image %>?set=set4'></td>
+
+      <td><%= a_film.title %></td>
+      <td><%= a_film.year %></td>
+      
+      <td>
+        <% x = a_film.director_id %>
+        <%= Director.where({:id => x}).name %>
+      </td>
+      
+      <td>
+        <a href = '/movies/<%= a_film.id %>'>Show details</a>
+      </td>
+    </tr>
+  <% end %>
+
+</table>
