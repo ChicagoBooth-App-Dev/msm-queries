@@ -24,7 +24,7 @@
       
       <td>
         <% x = a_film.director_id %>
-        <%= Director.where({:id => x}).name %>
+        <%= Director.where({:id => x}).first.name %>
       </td>
       
       <td>

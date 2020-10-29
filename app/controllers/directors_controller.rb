@@ -22,7 +22,7 @@ class DirectorsController < ApplicationController
     @director = Director.all.where({ :id => id}).first
 
     @filmography = Movie.where({ :director_id => @director.id})
-    
+
     render({ :template => 'director_templates/detail.html.erb'})
   end
 end
