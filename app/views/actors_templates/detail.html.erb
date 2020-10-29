@@ -42,11 +42,14 @@ Go <a href = '/actors'>back</a>
 
   <% @appearances.each do |a_film| %>
     <% x = a_film.movie_id %>
-    <%= movie = Movie.where({:id => x}).first %>
+    <% movie = Movie.where({:id => x}).first %>
     <tr>
       <td><%= movie.title %></td>
       <td><%= movie.year %></td>
-      <td><%=  %></td>
+      <td>
+        <% z = movie.director_id %>
+        <%= Director.where({ :id => z}).first.name %>
+      </td>
       <td><%= a_film.name %></td>
       <td><a href = '../movies/<%= x %>'>Show details</a></td>
     </tr>
